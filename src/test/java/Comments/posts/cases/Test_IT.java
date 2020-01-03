@@ -3,13 +3,11 @@
  */
 package Comments.posts.cases;
 
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 
 import Comments.posts.PostsTaskManager;
-import Comments.posts.tasks.GetPostComments;
-import Comments.posts.tasks.GetUserPosts;
-import Comments.posts.tasks.GetUsers;
+import Comments.posts.tasks.*;
 import Comments.posts.tasks.validate.ValidateResponse;
 
 public class Test_IT {
@@ -28,10 +26,20 @@ public class Test_IT {
 			e.printStackTrace();
 		}
 	}
+	
 
 	@Test
 	public void test() {
-		validateResponse.printAllTheCommentsOfaGivenUser("Samantha");
+		SoftAssert softAssert = new SoftAssert();
+		validateResponse.printAllTheCommentsOfaGivenUser("Samantha", softAssert);
+		softAssert.assertAll();
+	}
+	
+	@Test
+	public void testOne() {
+		SoftAssert softAssert = new SoftAssert();
+		validateResponse.printAllTheCommentsOfaGivenUser("ABC", softAssert);
+		softAssert.assertAll();
 	}
 
 }

@@ -20,6 +20,7 @@ public class RequestBuilder {
 	private String endPoint;
 	private Object request;
 
+	// GET call
 	public Response executeGet() {
 		RequestSpecification request = RestAssured.given().when().with();
 		if (this.getEndPoint() != null) {
@@ -37,6 +38,7 @@ public class RequestBuilder {
 		return null;
 	}
 
+	// POST call 
 	public Response executePost() {
 
 		RequestSpecification request = RestAssured.given().when().with().contentType("application/json");
@@ -52,6 +54,7 @@ public class RequestBuilder {
 		return null;
 	}
 
+	// PUT call
 	public Response executePut() {
 		RequestSpecification request = RestAssured.given().when().with().contentType("application/json");
 		if (this.getEndPoint() != null && this.getRequestBody() != null) {
@@ -67,6 +70,7 @@ public class RequestBuilder {
 		return null;
 	}
 
+	// DELETE call
 	public Response executeDelete() {
 		RequestSpecification request = RestAssured.given().when().with().contentType("application/json");
 		if (this.getEndPoint() != null && this.getRequestBody() != null) {

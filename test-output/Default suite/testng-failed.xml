@@ -5,7 +5,7 @@
     <classes>
       <class name="Comments.posts.cases.Test_IT">
         <methods>
-          <include name="testAllFlightsExists"/>
+          <include name="testOne"/>
           <include name="excecuteRequest"/>
         </methods>
       </class> <!-- Comments.posts.cases.Test_IT -->
